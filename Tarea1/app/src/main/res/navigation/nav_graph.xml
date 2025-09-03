@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/textfieldsFragment">
+
+    <fragment
+        android:id="@+id/textfieldsFragment"
+        android:name="com.example.tarea1.ui.TextFieldsFragment"
+        android:label="TextFields" />
+
+    <fragment
+        android:id="@+id/buttonsFragment"
+        android:name="com.example.tarea1.ui.ButtonsFragment"
+        android:label="Botones" />
+
+    <fragment
+        android:id="@+id/selectionFragment"
+        android:name="com.example.tarea1.ui.SelectionFragment"
+        android:label="Selección" />
+
+    <fragment
+        android:id="@+id/listFragment"
+        android:name="com.example.tarea1.ui.ListFragment"
+        android:label="Lista" />
+
+    <fragment
+        android:id="@+id/infoFragment"
+        android:name="com.example.tarea1.ui.InfoFragment"
+        android:label="Info" />
+</navigation>

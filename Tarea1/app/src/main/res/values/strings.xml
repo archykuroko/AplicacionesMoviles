@@ -1,3 +1,42 @@
 <resources>
     <string name="app_name">Tarea1</string>
+
+    <!-- TextFields -->
+    <string name="title_textfields">TextFields (EditText)</string>
+    <string name="desc_textfields">Permiten capturar texto del usuario.</string>
+    <string name="hint_et_uno">Escribe algo…</string>
+    <string name="hint_et_dos">Y aquí también…</string>
+    <string name="btn_guardar">Probar (Toast)</string>
+
+
+
+
+    <string name="title_selection">Selección (CheckBox, RadioButton, Switch)</string>
+    <string name="desc_selection">Permiten elegir opciones o activar estados.</string>
+    <string name="opt_a">Opción A</string>
+    <string name="opt_b">Opción B</string>
+    <string name="rb_uno">Uno</string>
+    <string name="rb_dos">Dos</string>
+    <string name="switch_label">Activar algo</string>
+    <string name="resumen_label">Resumen:</string>
+
+
+    <string name="title_list">Listas (ListView)</string>
+    <string name="desc_list">Muestran colecciones de elementos. Toca para ver; mantén presionado para eliminar.</string>
+
+
+
+    <string name="title_info">Información (TextView, ImageView, ProgressBar)</string>
+    <string name="desc_info">Muestran contenido y estados al usuario.</string>
+    <string name="img_info_cd">Imagen de demostración</string>
+    <string name="info_placeholder">(Aún no hay texto)</string>
+    <string name="btn_animar">Animar barra</string>
+
+
+    <string name="title_buttons">Botones (Button, ImageButton)</string>
+    <string name="desc_buttons">Permiten ejecutar acciones al presionarse.</string>
+    <string name="btn_demo">Mostrar Toast</string>
+    <string name="img_btn_cd">Botón con ícono de cámara</string>
+
+
 </resources>
