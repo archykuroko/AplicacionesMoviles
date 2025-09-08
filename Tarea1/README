@@ -1,0 +1,73 @@
+==========================================
+Demo de UI con Activities y Fragments
+==========================================
+
+DESCRIPCIÓN
+-----------
+Esta aplicación Android, desarrollada en Kotlin, demuestra el uso de 
+1 Activity principal y 5 Fragments, cada uno dedicado a diferentes 
+elementos de interfaz de usuario. 
+
+Se utiliza un menú de navegación inferior (BottomNavigationView) 
+para cambiar entre fragments de manera sencilla.
+
+------------------------------------------
+ESTRUCTURA DE LA APP
+------------------------------------------
+
+MainActivity:
+- Contenedor principal con Toolbar y BottomNavigationView.
+- Controla la navegación entre fragments.
+
+Fragments:
+1) TextFieldsFragment
+   - Ejemplos de EditText y TextInputLayout (nombre y correo).
+   - Botón que valida y muestra la entrada en pantalla.
+   - Breve explicación de para qué sirven los campos de texto.
+
+2) ButtonsFragment
+   - Demostración de MaterialButton (filled, outlined), ImageButton y FloatingActionButton.
+   - Cada botón lanza un mensaje (Toast o Snackbar).
+   - Mantener presionado el botón principal cambia automáticamente al Fragment de Lista.
+   - Breve explicación del uso de botones.
+
+3) SelectionFragment
+   - Incluye CheckBox, RadioButton y Switch.
+   - El estado seleccionado se resume en un TextView.
+   - Breve explicación del uso de elementos de selección.
+
+4) ListFragment
+   - Implementación de un RecyclerView con ítems en tarjetas.
+
+5) InfoFragment
+   - Contiene TextView, ImageView y ProgressBar (indeterminada y determinada).
+   - Botón que simula una carga progresiva.
+
+
+------------------------------------------
+REQUISITOS TÉCNICOS
+------------------------------------------
+- Android Studio Giraffe o superior
+- Kotlin habilitado
+- minSdk 21
+- compileSdk 34
+- Dependencias principales:
+  * com.google.android.material:material:1.12.0
+  * androidx.recyclerview:recyclerview:1.3.2
+  * androidx.fragment:fragment-ktx:1.8.2
+
+------------------------------------------
+CÓMO USAR LA APP
+------------------------------------------
+1. Abrir el proyecto en Android Studio.
+2. Sincronizar dependencias (Gradle Sync).
+3. Ejecutar en emulador o dispositivo físico.
+4. Usar el menú inferior para navegar entre fragments.
+
+
+------------------------------------------
+AUTOR
+------------------------------------------
+Nombre: Escárcega Hernández Steven Arturo
+Materia: Desarrollo de Aplicaciones Móviles
+Fecha de entrega: 3 de septiembre de 2025
