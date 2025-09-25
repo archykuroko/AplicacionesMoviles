@@ -1,4 +1,4 @@
-==========================================
+
 Demo de UI con Activities y Fragments
 ==========================================
 
@@ -24,6 +24,9 @@ Fragments:
    - Ejemplos de EditText y TextInputLayout (nombre y correo).
    - Botón que valida y muestra la entrada en pantalla.
    - Breve explicación de para qué sirven los campos de texto.
+  
+ <img width="360" height="780" alt="TextFields" src="https://github.com/user-attachments/assets/5d336952-e970-4362-9ace-05b494a47733" />
+
 
 2) ButtonsFragment
    - Demostración de MaterialButton (filled, outlined), ImageButton y FloatingActionButton.
@@ -31,17 +34,32 @@ Fragments:
    - Mantener presionado el botón principal cambia automáticamente al Fragment de Lista.
    - Breve explicación del uso de botones.
 
+
+<img width="360" height="780" alt="Botones" src="https://github.com/user-attachments/assets/9c42df96-2737-43ab-ae3c-9250f4c62359" />
+
+
 3) SelectionFragment
    - Incluye CheckBox, RadioButton y Switch.
    - El estado seleccionado se resume en un TextView.
    - Breve explicación del uso de elementos de selección.
 
+<img width="360" height="780" alt="Seleccion" src="https://github.com/user-attachments/assets/5f2a93a8-edb4-46b5-8ff7-4cd0e2200bb0" />
+
+
+
 4) ListFragment
    - Implementación de un RecyclerView con ítems en tarjetas.
+
+<img width="360" height="780" alt="Listas" src="https://github.com/user-attachments/assets/882db36b-93e9-4808-bc81-b2d92cd0cecf" />
+
+
 
 5) InfoFragment
    - Contiene TextView, ImageView y ProgressBar (indeterminada y determinada).
    - Botón que simula una carga progresiva.
+
+
+<img width="360" height="780" alt="Info" src="https://github.com/user-attachments/assets/6a9d088e-324a-42b4-bb4f-e8890c680864" />
 
 
 ------------------------------------------
