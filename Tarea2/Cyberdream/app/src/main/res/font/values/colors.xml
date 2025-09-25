@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="bg_oscuro">#0A0A0F</color>
+    <color name="card_oscura">#12121A</color>
+
+    <color name="neon_cyan">#00FFFF</color>
+    <color name="neon_rosa">#FF00FF</color>
+    <color name="neon_amarillo">#FFCC00</color>
+
+    <color name="texto_principal">#E6F7FF</color>
+    <color name="texto_secundario">#B0C9D6</color>
+</resources>

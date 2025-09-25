@@ -1,0 +1,29 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="#12121A">
+
+    <LinearLayout
+        android:orientation="vertical" android:padding="24dp"
+        android:layout_width="match_parent" android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/txtTitulo"
+            android:text="Título"
+            android:textSize="20sp" android:textStyle="bold"
+            android:textColor="#00FFFF"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+
+        <ImageView
+            android:id="@+id/imgPortada"
+            android:layout_width="match_parent" android:layout_height="180dp"
+            android:layout_marginTop="12dp"
+            android:scaleType="centerCrop"
+            android:background="#222222"/>
+
+        <TextView
+            android:id="@+id/txtDescripcion"
+            android:text="Descripción del edificio…"
+            android:textColor="#E6F7FF" android:layout_marginTop="12dp"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+    </LinearLayout>
+</ScrollView>

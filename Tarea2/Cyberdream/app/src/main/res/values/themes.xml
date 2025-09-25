@@ -1,0 +1,24 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Base application theme. -->
+    <style name="Base.Theme.Cyberdream" parent="Theme.Material3.DayNight.NoActionBar">
+
+        <item name="android:windowBackground">@drawable/bg_cyber_gradient</item>
+        <item name="android:statusBarColor">@color/bg_oscuro</item>
+        <item name="android:navigationBarColor">@color/bg_oscuro</item>
+        <item name="android:windowContentTransitions">true</item>
+        <item name="android:windowSharedElementsUseOverlay">true</item>
+
+
+
+        <item name="colorPrimary">@color/neon_cyan</item>
+        <item name="colorSecondary">@color/neon_rosa</item>
+        <item name="colorTertiary">@color/neon_amarillo</item>
+
+        <item name="android:fontFamily">@font/orbitron</item>
+
+    </style>
+
+
+    <style name="Theme.Cyberdream" parent="Base.Theme.Cyberdream" />
+</resources>
