@@ -111,7 +111,7 @@ En `res/` se organizan:
 ## Instalación
 1. Clonar el repositorio:  
    ```bash
-   git clone https://github.com/tuusuario/cyberdream.git
+   git clone https://github.com/archykuroko/AplicacionesMoviles.git
    ```
 2. Abrir en **Android Studio**.  
 3. Sincronizar dependencias de Gradle.  
