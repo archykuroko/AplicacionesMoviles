@@ -16,6 +16,7 @@ import com.example.cyberdream.data.Edificio
 import com.example.cyberdream.databinding.FragmentListaEdificiosBinding
 import com.example.cyberdream.databinding.ItemEdificioBinding
 import com.example.cyberdream.ui.edificio.EdificioActivity
+import com.example.cyberdream.R
 
 class ListaEdificiosFragment : Fragment() {
 
@@ -71,12 +72,15 @@ class AdaptadorEdificios(
         holder.vb.titulo.text = e.nombre
         holder.vb.subtitulo.text = e.descripcion
 
-        // Puedes setear una imagen distinta por edificio si quieres
-        // holder.vb.img.setImageResource(...)
-
-        holder.vb.root.setOnClickListener {
-            onClick(e, holder.vb.img)
+        val thumbRes = when (e.id) {
+            "afterlife" -> R.drawable.thumb_afterlife
+            "estacion"  -> R.drawable.thumb_estacion
+            "mods"      -> R.drawable.thumb_mods
+            else        -> 0
         }
+        if (thumbRes != 0) holder.vb.img.setImageResource(thumbRes)
+
+        holder.vb.root.setOnClickListener { onClick(e, holder.vb.img) }
     }
 
     override fun getItemCount() = items.size

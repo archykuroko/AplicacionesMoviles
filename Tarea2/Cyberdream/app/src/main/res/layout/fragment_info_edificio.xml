@@ -1,29 +1,58 @@
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent"
-    android:background="#12121A">
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
 
     <LinearLayout
-        android:orientation="vertical" android:padding="24dp"
-        android:layout_width="match_parent" android:layout_height="wrap_content">
+        android:orientation="vertical"
+        android:paddingBottom="24dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp">
 
         <TextView
             android:id="@+id/txtTitulo"
-            android:text="Título"
-            android:textSize="20sp" android:textStyle="bold"
-            android:textColor="#00FFFF"
-            android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-
-        <ImageView
-            android:id="@+id/imgPortada"
-            android:layout_width="match_parent" android:layout_height="180dp"
-            android:layout_marginTop="12dp"
-            android:scaleType="centerCrop"
-            android:background="#222222"/>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Resumen"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textColor="@color/neon_cyan"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"/>
 
         <TextView
             android:id="@+id/txtDescripcion"
-            android:text="Descripción del edificio…"
-            android:textColor="#E6F7FF" android:layout_marginTop="12dp"
-            android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Descripción del edificio en estilo cyberpunk..."
+            android:lineSpacingExtra="2dp"
+            android:layout_marginBottom="16dp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#44FFFFFF"
+            android:layout_marginBottom="12dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mapa interno"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="@color/neon_rosa"
+            android:layout_marginBottom="8dp"/>
+
+        <!-- Mapa del edificio -->
+        <ImageView
+            android:id="@+id/imgMapaInterno"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:contentDescription="@string/app_name"/>
     </LinearLayout>
-</ScrollView>
+</androidx.core.widget.NestedScrollView>

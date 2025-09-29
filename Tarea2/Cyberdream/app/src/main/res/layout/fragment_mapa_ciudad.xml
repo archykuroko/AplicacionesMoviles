@@ -1,10 +1,17 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent"
-    android:background="#12121A">
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/imgMapaCiudad"
+        android:src="@drawable/map_city_night"
+        android:scaleType="centerCrop"
+        android:layout_width="match_parent" android:layout_height="match_parent"/>
 
     <TextView
-        android:layout_gravity="center"
-        android:text="🌆 Aquí irá el Mapa de la Ciudad"
-        android:textColor="#00FFFF" android:textSize="18sp"
+        android:text="Mapa de la Ciudad"
+        android:layout_margin="12dp"
+        android:layout_gravity="bottom|start"
+        android:textColor="@color/neon_cyan"
+        android:textStyle="bold"
         android:layout_width="wrap_content" android:layout_height="wrap_content"/>
 </FrameLayout>

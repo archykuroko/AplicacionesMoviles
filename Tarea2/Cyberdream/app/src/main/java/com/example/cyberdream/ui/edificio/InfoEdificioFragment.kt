@@ -5,8 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
-import androidx.core.view.ViewCompat
 import androidx.fragment.app.Fragment
+import com.example.cyberdream.R
 import com.example.cyberdream.data.DatosDemo
 import com.example.cyberdream.databinding.FragmentInfoEdificioBinding
 
@@ -14,12 +14,8 @@ class InfoEdificioFragment : Fragment() {
 
     companion object {
         private const val ARG_ID = "id"
-        private const val ARG_TN = "tn"
-
-        fun newInstance(id: String, transitionName: String? = null) =
-            InfoEdificioFragment().apply {
-                arguments = bundleOf(ARG_ID to id, ARG_TN to transitionName)
-            }
+        fun newInstance(id: String, unused: String? = null) =
+            InfoEdificioFragment().apply { arguments = bundleOf(ARG_ID to id) }
     }
 
     private var _b: FragmentInfoEdificioBinding? = null
@@ -32,20 +28,18 @@ class InfoEdificioFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val id = requireArguments().getString(ARG_ID) ?: "afterlife"
-        val tn = requireArguments().getString(ARG_TN)
-
-        // Aplica el mismo transitionName a la imagen destino
-        if (!tn.isNullOrEmpty()) {
-            ViewCompat.setTransitionName(b.imgPortada, tn)
-        }
-
         val edificio = DatosDemo.oldDowntown.edificios.firstOrNull { it.id == id }
-        b.txtTitulo.text = edificio?.nombre ?: "Edificio"
-        b.txtDescripcion.text = edificio?.descripcion ?: "Descripción no disponible"
 
-        // Si cargaras imagen asíncrona, empieza la transición en onResourceReady.
-        // Como usamos placeholder sin carga, arrancamos ya:
-        requireActivity().supportStartPostponedEnterTransition()
+        b.txtTitulo.text = "Resumen"
+        b.txtDescripcion.text = edificio?.descripcion ?: "Descripción no disponible."
+
+        val mapa = when (id) {
+            "afterlife" -> R.drawable.map_afterlife
+            "estacion"  -> R.drawable.map_estacion
+            "mods"      -> R.drawable.map_mods
+            else        -> R.drawable.map_afterlife
+        }
+        b.imgMapaInterno.setImageResource(mapa)
     }
 
     override fun onDestroyView() { super.onDestroyView(); _b = null }

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.button.MaterialButton xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/Widget.Cyberdream.NeonPill"
+    android:layout_width="match_parent"
+    android:layout_height="96dp"
+    android:insetTop="8dp"
+    android:insetBottom="8dp"
+    android:ellipsize="end"
+    android:maxLines="2"
+    android:gravity="center"
+    android:textAllCaps="false"
+    app:icon="@drawable/cy_poi_dot"
+    app:iconSize="20dp"
+    app:iconPadding="6dp"
+    app:iconGravity="textTop"/>
