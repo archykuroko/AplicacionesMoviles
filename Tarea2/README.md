@@ -3,7 +3,7 @@
 
 ---
 
-## 📖 Descripción
+## Descripción
 Cyberdream es una aplicación Android que ofrece una experiencia inmersiva ambientada en una ciudad ficticia con estética **cyberpunk**.  
 El usuario puede explorar la **ciudad**, descubrir **barrios**, y adentrarse en los **edificios emblemáticos**, cada uno con información, mapas internos, galerías y puntos de interés (POIs).  
 
@@ -15,7 +15,7 @@ La app se construyó con una navegación jerárquica de tres niveles:
 
 ---
 
-## 🚀 Características principales
+## Características principales
 - **Jerarquía de navegación**:
   - `CiudadActivity`: Explora los barrios de la ciudad.  
   - `BarrioActivity`: Accede a la información del barrio y a sus ambientes.  
@@ -50,7 +50,7 @@ La app se construyó con una navegación jerárquica de tres niveles:
 
 ---
 
-## 📂 Estructura del proyecto
+## Estructura del proyecto
 ```
 app/
  └─ src/main/java/com/example/cyberdream/
@@ -70,7 +70,7 @@ En `res/` se organizan:
 
 ---
 
-## 🛠️ Tecnologías usadas
+## Tecnologías usadas
 - **Lenguaje:** Kotlin  
 - **Frameworks/Libs:**  
   - AndroidX  
@@ -81,26 +81,34 @@ En `res/` se organizan:
 
 ---
 
-## 📸 Capturas de pantalla
+## 📸Capturas de pantalla
 
-> 🔽 Aquí irán tus imágenes exportadas desde el emulador.  
 
-### 🌆 Ciudad
-- [CAPTURA_CIUDAD_1]  
-- [CAPTURA_CIUDAD_2]  
 
-### 🏙️ Barrios
-- [CAPTURA_BARRIO_1]  
-- [CAPTURA_BARRIO_2]  
+###  Ciudad
+<img width="540" height="1200" alt="CiudadActivity1" src="https://github.com/user-attachments/assets/fae6f389-6091-4261-b3c2-ab61037aebbf" />
+<img width="540" height="1200" alt="CiudadActivity3" src="https://github.com/user-attachments/assets/a1d22908-b1df-4a65-bb42-fd580ae9b939" />
+<img width="540" height="1200" alt="CiudadActivity2" src="https://github.com/user-attachments/assets/ea3a8ad6-97a7-4c99-84c2-bbf6121959ac" />
 
-### 🏢 Edificios
-- [CAPTURA_EDIFICIO_INFO]  
-- [CAPTURA_EDIFICIO_POIS]  
-- [CAPTURA_EDIFICIO_GALERIA]  
+
+
+###  Barrios
+
+<img width="540" height="1200" alt="BarrioActivity1" src="https://github.com/user-attachments/assets/64d8615e-eef4-40af-a320-a6c0fa3d88f8" />
+<img width="540" height="1200" alt="BarrioActivity3" src="https://github.com/user-attachments/assets/bfe9974e-841a-4d78-8e85-66974f38cca9" />
+<img width="540" height="1200" alt="BarrioActivity2" src="https://github.com/user-attachments/assets/b87706f6-405e-48dc-ad85-040549dbdd0b" />
+
+
+
+###  Edificios
+
+<img width="540" height="1200" alt="Mods3" src="https://github.com/user-attachments/assets/1a9d887a-3399-47c7-b943-70aecf24c114" />
+<img width="540" height="1200" alt="Mods2" src="https://github.com/user-attachments/assets/b694ae1f-f943-4412-87ad-ea128afd7884" />
+<img width="540" height="1200" alt="Mods1" src="https://github.com/user-attachments/assets/591fab38-d434-4b36-b54e-d53113ceaa46" />
 
 ---
 
-## 📦 Instalación
+## Instalación
 1. Clonar el repositorio:  
    ```bash
    git clone https://github.com/tuusuario/cyberdream.git
@@ -111,7 +119,7 @@ En `res/` se organizan:
 
 ---
 
-## ✍️ Decisiones de diseño
+## Decisiones de diseño
 - Se usó **Material3** como base para aprovechar compatibilidad y personalización.  
 - La fuente **Orbitron** refuerza la estética futurista.  
 - Fondos dinámicos para diferenciar cada nivel jerárquico.  
@@ -120,7 +128,7 @@ En `res/` se organizan:
 
 ---
 
-## ⚔️ Retos y Soluciones
+## Retos y Soluciones
 - **Problema:** Errores con estilos personalizados (Material3).  
   - **Solución:** Volver al theme base por defecto y extenderlo con gradientes propios.  
 
@@ -136,5 +144,5 @@ En `res/` se organizan:
 ---
 
 ## 👤 Autor
-Desarrollado por **[Tu Nombre]**  
+Desarrollado por **Escárcega Hernández Steven Arturo**  
 Aplicación académica estilo cyberpunk para la materia de **Aplicaciones Móviles**.  
