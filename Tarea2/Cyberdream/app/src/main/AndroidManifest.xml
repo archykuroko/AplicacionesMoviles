@@ -6,6 +6,7 @@
         android:label="Cyberdream"
         android:theme="@style/Theme.Cyberdream">
 
+        <activity android:name=".ui.SettingsActivity" />
         <activity
             android:name=".ui.edificio.EdificioActivity"
             android:label="Edificio" />

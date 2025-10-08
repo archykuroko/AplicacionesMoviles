@@ -1,9 +1,37 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="bg_oscuro">#0A0A0F</color>
-    <color name="card_oscura">#12121A</color>
 
-    <color name="neon_cyan">#00FFFF</color>
-    <color name="neon_rosa">#FF00FF</color>
-    <color name="neon_amarillo">#FFCC00</color>
+    <!-- ====== OSCURO (Cyberdream por defecto) ====== -->
+    <!-- Fondo/base para barras -->
+    <color name="bg_oscuro">#05070D</color>
+
+    <!-- Paleta neón -->
+    <color name="neon_cyan">#00D1FF</color>
+    <color name="neon_rosa">#FF2DAA</color>
+    <color name="neon_amarillo">#F5E347</color>
+
+    <!-- Superficies/Texto para oscuro -->
+    <color name="cd_dark_surface">#0B0F1A</color>
+    <color name="cd_dark_onSurface">#E5F7FF</color>
+    <color name="cd_dark_background">#05070D</color>
+    <color name="cd_dark_onBackground">#D8EAF2</color>
+
+    <!-- Tarjetas y bordes -->
+    <color name="card_oscura">#0B0F1A</color>
+    <color name="card_outline_oscura">#1E2533</color>
+
+    <!-- ====== CLARO ====== -->
+    <color name="cd_light_primary">#0061A8</color>
+    <color name="cd_light_onPrimary">#FFFFFF</color>
+    <color name="cd_light_surface">#F6F7FB</color>
+    <color name="cd_light_onSurface">#0F1222</color>
+    <color name="cd_light_background">#FFFFFF</color>
+    <color name="cd_light_onBackground">#0A0D16</color>
+
+    <!-- Tarjetas y bordes  -->
+    <color name="card_clara">#FFFFFF</color>
+    <color name="card_outline_clara">#E0E3EB</color>
+
+    <!-- Ripple genérico -->
+    <color name="ripple_neutro">#1FFFFFFF</color>
+
 </resources>

@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Cyberdream</string>
+    <string name="ajustes">Ajustes</string>
+    <string name="ajustes_modo_oscuro">Modo oscuro</string>
+    <string name="ajustes_modo_oscuro_desc">Actívalo para usar el tema oscuro. Desactívalo para tema claro.</string>
 </resources>

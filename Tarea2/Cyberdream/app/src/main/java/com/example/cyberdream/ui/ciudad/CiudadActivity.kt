@@ -2,21 +2,30 @@ package com.example.cyberdream.ui.ciudad
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
+import android.view.Menu
+import android.view.MenuItem
+import androidx.appcompat.widget.Toolbar
 import com.example.cyberdream.R
+import com.example.cyberdream.comun.applyDynamicBackdrop
 import com.example.cyberdream.comun.setNeonTabsActive
 import com.example.cyberdream.databinding.ActivityCiudadBinding
+import com.example.cyberdream.ui.BaseActivity
+import com.example.cyberdream.ui.SettingsActivity
 import com.example.cyberdream.ui.barrio.BarrioActivity
-import com.example.cyberdream.comun.applyDynamicBackdrop
 
-class CiudadActivity : AppCompatActivity() {
+class CiudadActivity : BaseActivity() {
 
     private lateinit var b: ActivityCiudadBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         b = ActivityCiudadBinding.inflate(layoutInflater)
-        setContentView(b.root)
+        setContentView(b.root)   // ✅ usa el binding, no el layout id
+
+        // Toolbar para el menú Ajustes
+        val toolbar = findViewById<Toolbar>(R.id.toolbarCiudad)
+        setSupportActionBar(toolbar)
+
         applyDynamicBackdrop(b.root, key = "ciudad", overlayGradient = true)
 
         if (savedInstanceState == null) {
@@ -38,7 +47,6 @@ class CiudadActivity : AppCompatActivity() {
             setNeonTabsActive(b.tabNoticias, b.tabMapa, b.tabBarrios)
         }
 
-
         b.btnEntrarBarrio.setOnClickListener {
             startActivity(Intent(this, BarrioActivity::class.java))
             overridePendingTransition(R.anim.act_slide_in_right, R.anim.act_fade_out)
@@ -51,5 +59,21 @@ class CiudadActivity : AppCompatActivity() {
             .setCustomAnimations(enter, R.anim.fragment_fade_out, 0, 0)
             .replace(b.contenedor.id, fragment)
             .commit()
+    }
+
+    // Menú para abrir Settings
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.menu_ciudad, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.action_settings -> {
+                startActivity(Intent(this, SettingsActivity::class.java))
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 }

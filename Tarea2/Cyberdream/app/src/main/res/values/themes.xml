@@ -1,24 +1,58 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- Base application theme. -->
+    <!-- ====== BASE OSCURO  ====== -->
     <style name="Base.Theme.Cyberdream" parent="Theme.Material3.DayNight.NoActionBar">
 
+        <!-- Fondo / barras -->
         <item name="android:windowBackground">@drawable/bg_cyber_gradient</item>
         <item name="android:statusBarColor">@color/bg_oscuro</item>
         <item name="android:navigationBarColor">@color/bg_oscuro</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowLightNavigationBar">false</item>
+
+        <!-- Transiciones -->
         <item name="android:windowContentTransitions">true</item>
         <item name="android:windowSharedElementsUseOverlay">true</item>
 
-
-
+        <!-- Paleta principal (oscuro) -->
         <item name="colorPrimary">@color/neon_cyan</item>
         <item name="colorSecondary">@color/neon_rosa</item>
         <item name="colorTertiary">@color/neon_amarillo</item>
 
+        <!-- Superficies y texto (oscuro) -->
+        <item name="colorSurface">@color/cd_dark_surface</item>
+        <item name="colorOnSurface">@color/cd_dark_onSurface</item>
+        <item name="android:colorBackground">@color/cd_dark_background</item>
+
+        <!-- tipografía -->
+        <item name="android:fontFamily">@font/orbitron</item>
+    </style>
+
+    <!-- ====== TEMA CLARO ====== -->
+    <style name="Theme.Cyberdream.Light" parent="Theme.Material3.Light.NoActionBar">
+        <!-- Barras translúcidas y iconos oscuros -->
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowLightNavigationBar">true</item>
+
+        <!-- Paleta (claro) -->
+        <item name="colorPrimary">@color/cd_light_primary</item>
+        <item name="colorOnPrimary">@color/cd_light_onPrimary</item>
+
+        <item name="colorSurface">@color/cd_light_surface</item>
+        <item name="colorOnSurface">@color/cd_light_onSurface</item>
+        <item name="android:colorBackground">@color/cd_light_background</item>
+
+
+        <!-- tipografía -->
         <item name="android:fontFamily">@font/orbitron</item>
 
     </style>
 
+    <!-- Alias oscuro explícito para alternar por código -->
+    <style name="Theme.Cyberdream.Dark" parent="Base.Theme.Cyberdream" />
 
+    <!-- Alias genérico (usa oscuro por defecto) -->
     <style name="Theme.Cyberdream" parent="Base.Theme.Cyberdream" />
 </resources>
