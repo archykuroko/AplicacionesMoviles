@@ -1,0 +1,6 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Tema de la app en M3 -->
+    <style name="Theme.Actividad1" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="android:statusBarColor" tools:targetApi="21">@android:color/transparent</item>
+    </style>
+</resources>
