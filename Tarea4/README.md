@@ -109,7 +109,42 @@ fun aguaVenceFuego() {
 
 
 ---
+## 🧠 Sistema de guardado y gestor de partidas
 
+El proyecto **Card Jitsu ES** ahora incorpora un **gestor de partidas** que permite guardar, cargar y eliminar partidas previas, facilitando continuar el juego en cualquier momento.
+
+### 📂 ¿Cómo funciona?
+
+- Durante la partida, se puede **guardar el progreso** actual.  
+  Esto incluye:
+  - Marcadores (J1 / J2)
+  - Objetivo de victorias
+  - Fase del juego
+  - Elementos seleccionados
+  - Resultado de la última ronda
+
+- Las partidas se almacenan en **formato JSON** dentro del almacenamiento interno de la aplicación, mediante la clase `GestorPartidas`.
+
+- Desde el **menú principal**, se puede acceder al apartado **"Partidas guardadas"**, donde:
+  - Se muestran todas las partidas almacenadas.
+  - Es posible **continuar** una partida previa.
+  - También se puede **eliminar** cualquier registro guardado.
+
+### 🧩 Implementación técnica
+
+El sistema se apoya en tres componentes principales:
+
+| Componente | Función principal |
+|-------------|------------------|
+| `GestorPartidas` | Maneja el guardado, carga y eliminación de archivos JSON. |
+| `PartidaSnapshot` | Representa el estado completo de una partida. |
+| `PantallaGuardadas` | Interfaz de usuario para gestionar las partidas guardadas. |
+
+Cada snapshot se crea con `JuegoViewModel.crearSnapshot()` y puede restaurarse con `JuegoViewModel.restaurar()`, garantizando la continuidad exacta del estado del juego.
+
+
+
+---
 ## 🧑‍💻 Autor
 
 Desarrollado por **Escárcega Hernández Steven Arturo**  y **Contla Mota Luis Andrés**
