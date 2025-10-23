@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Card Jitsu ES</string>
+    <string name="menu_start_local">2 Jugadores (mismo dispositivo)</string>
+    <string name="btn_revelar">Revelar</string>
+    <string name="btn_nueva_ronda">Nueva ronda</string>
+    <string name="btn_reiniciar">Reiniciar</string>
+</resources>
