@@ -59,8 +59,6 @@ app/
 3. En el menú principal selecciona el modo deseado.
 
 ### 🔹 Modo Bluetooth
-> ⚠️ **Importante:** los emuladores no soportan Bluetooth clásico (RFCOMM).  
-> Usa **dos dispositivos físicos** con Android 10 o superior.
 
 1. Empareja ambos dispositivos desde **Configuración → Bluetooth**.  
 2. Inicia el juego en modo “PvP por Bluetooth”.  
@@ -97,23 +95,25 @@ fun aguaVenceFuego() {
 
 ## 📸 Capturas de pantalla
 
-A continuación puedes agregar tus capturas del juego:
+
 
 | Vista | Imagen |
 |-------|--------|
-| **Menú principal** | ![menu](./screenshots/menu_principal.png) |
-| **Modo local** | ![local](./screenshots/modo_local.png) |
-| **Ronda ganada / empate** | ![ronda](./screenshots/ronda_ganada.png) |
-| **Modo vs Bot** | ![bot](./screenshots/modo_bot.png) |
-| **Bluetooth emparejando jugadores** | ![bt](./screenshots/bluetooth_conexion.png) |
+| **Menú principal** | ![menu](./Capturas/MenuPrincipal.png) |
+| **Modo local** | ![local](./Capturas/ModoLocal.png) |
+| **Ronda ganada** | ![ronda](./Capturas/RondaGanada.png) |
+| **Partida ganada** | ![ronda](./Capturas/PartidaGanada.png) |
+| **Modo vs Bot** | ![bot](./Capturas/PartidaIA.png) |
+| **Bluetooth emparejando jugadores** | ![bt](./Capturas/MenuBT.png) |
 
-> 📷 Guarda tus capturas en una carpeta llamada `/screenshots/` dentro del proyecto.
+
 
 ---
 
 ## 🧑‍💻 Autor
 
-Desarrollado por **Escárcega Hernández Steven Arturo**  
+Desarrollado por **Escárcega Hernández Steven Arturo**  y **Contla Mota Luis Andrés**
+
 🎓 Proyecto académico de la materia **Aplicaciones Móviles (ESCOM - IPN)**  
 📅 Octubre 2025
 
@@ -122,6 +122,6 @@ Desarrollado por **Escárcega Hernández Steven Arturo**
 ## 📜 Licencia
 
 Este proyecto es de libre uso académico y educativo.  
-Si lo reutilizas, por favor menciona al autor original.
+Si lo reutilizas, por favor menciona a los autoress original.
 
 ---
