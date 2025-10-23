@@ -45,9 +45,10 @@ import kotlin.random.Random
 fun PantallaPartida(
     modo: ModoJuego,
     vm: JuegoViewModel = viewModel(
-        key = "vm_${modo.name}",               // fuerza instancia por modo
-        factory = JuegoViewModelFactory(modo)  // factory simple
+        key = "vm_${modo.name}",
+        factory = JuegoViewModelFactory(modo)
     ),
+    gestor: mx.escom.cardjitsu.juego.almacen.GestorPartidas,
     onVolverMenu: () -> Unit
 ) {
     val estado by vm.estado.collectAsState()
@@ -129,7 +130,11 @@ fun PantallaPartida(
                     estado = estado,
                     onRevelar = { vm.procesar(IntentJuego.Revelar) },
                     onNuevaRonda = { vm.procesar(IntentJuego.NuevaRonda) },
-                    onReiniciar = { vm.procesar(IntentJuego.ReiniciarPartida) }
+                    onReiniciar = { vm.procesar(IntentJuego.ReiniciarPartida) },
+                    onGuardar = {
+                        val snap = vm.crearSnapshot()
+                        val id = gestor.guardar(snap)
+                    }
                 )
 
                 // Banner + Resumen (con animación y sin NPE)
@@ -203,7 +208,8 @@ private fun PanelAcciones(
     estado: EstadoUIJuego,
     onRevelar: () -> Unit,
     onNuevaRonda: () -> Unit,
-    onReiniciar: () -> Unit
+    onReiniciar: () -> Unit,
+    onGuardar: () -> Unit
 ) {
     val whiteButtons = ButtonDefaults.buttonColors(
         containerColor = Color.White,
@@ -238,6 +244,15 @@ private fun PanelAcciones(
             border = BorderStroke(1.dp, Color.White.copy(alpha = 0.6f)),
             modifier = Modifier.weight(1f)
         ) { Text("Reiniciar") }
+
+        Button(
+            onClick = onGuardar,
+            colors = whiteButtons,
+            border = BorderStroke(1.dp, Color.White.copy(alpha = 0.6f)),
+            modifier = Modifier.weight(1f)
+        ) { Text("Guardar") }
+
+
     }
 }
 
@@ -486,3 +501,4 @@ private fun nombreDe(e: Elemento) = when (e) {
     Elemento.AGUA  -> "Agua"
     Elemento.NIEVE -> "Nieve"
 }
+

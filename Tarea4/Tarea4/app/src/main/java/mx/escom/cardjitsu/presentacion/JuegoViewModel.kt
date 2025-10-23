@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
+import mx.escom.cardjitsu.juego.almacen.PartidaSnapshot
 import mx.escom.cardjitsu.juego.dominio.ConfiguracionPartida
 import mx.escom.cardjitsu.juego.dominio.Elemento
 import mx.escom.cardjitsu.juego.dominio.Reglas
@@ -14,6 +15,7 @@ import mx.escom.cardjitsu.red.bluetooth.Mensaje
 import mx.escom.cardjitsu.red.bluetooth.TipoMsg
 import mx.escom.cardjitsu.red.bluetooth.sha256
 import kotlin.random.Random
+
 
 /**
  * Orquesta el flujo del duelo:
@@ -268,6 +270,37 @@ class JuegoViewModel(
         }
     }
 
+    // ====== SNAPSHOT API ======
+
+    fun crearSnapshot(): PartidaSnapshot {
+        val s = estado.value
+        return PartidaSnapshot(
+            id = java.util.UUID.randomUUID().toString(),
+            timestamp = System.currentTimeMillis(),
+            modo = modo,
+            objetivoVictorias = s.objetivoVictorias,
+            marcadorJ1 = s.marcadorJ1,
+            marcadorJ2 = s.marcadorJ2,
+            fase = s.fase,
+            resultadoRonda = s.resultadoRonda,
+            seleccionJ1 = s.seleccionJ1,
+            seleccionJ2 = s.seleccionJ2
+        )
+    }
+
+    fun restaurar(snapshot: PartidaSnapshot) {
+        _estado.value = EstadoUIJuego(
+            objetivoVictorias = snapshot.objetivoVictorias,
+            marcadorJ1 = snapshot.marcadorJ1,
+            marcadorJ2 = snapshot.marcadorJ2,
+            fase = snapshot.fase,
+            resultadoRonda = snapshot.resultadoRonda,
+            seleccionJ1 = snapshot.seleccionJ1,
+            seleccionJ2 = snapshot.seleccionJ2,
+            mensajeError = null
+        )
+    }
+
     /** Cuando tengo ambos reveals válidos, decido la ronda y limpio protocolo. */
     private fun intentarResolverBt() {
         val mio = miReveal?.first
@@ -304,3 +337,6 @@ class JuegoViewModel(
         return true
     }
 }
+
+
+

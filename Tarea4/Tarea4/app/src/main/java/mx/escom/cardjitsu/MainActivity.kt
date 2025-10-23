@@ -15,12 +15,14 @@ import mx.escom.cardjitsu.presentacion.ModoJuego
 import mx.escom.cardjitsu.red.bluetooth.BluetoothServicio
 import mx.escom.cardjitsu.red.bluetooth.Mensaje
 import mx.escom.cardjitsu.ui.pantallas.PantallaBluetooth
+import mx.escom.cardjitsu.ui.pantallas.PantallaGuardadas
 import mx.escom.cardjitsu.ui.pantallas.PantallaMenu
 import mx.escom.cardjitsu.ui.pantallas.PantallaPartida
 import mx.escom.cardjitsu.ui.tema.FondoDojo
 import mx.escom.cardjitsu.ui.tema.TemaCardJitsu
+import mx.escom.cardjitsu.juego.almacen.GestorPartidas
 
-enum class Pantalla { MENU, PARTIDA, BLUETOOTH }
+enum class Pantalla { MENU, PARTIDA, BLUETOOTH, GUARDADAS }
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,24 +34,25 @@ class MainActivity : ComponentActivity() {
                     var pantalla by rememberSaveable { mutableStateOf(Pantalla.MENU) }
                     var modo by rememberSaveable { mutableStateOf(ModoJuego.LOCAL) }
 
-
+                    // VM compartido (clave por modo para recrearlo cuando cambias)
                     val vm: JuegoViewModel = viewModel(
                         key = "vm_${modo.name}",
                         factory = JuegoViewModelFactory(modo)
                     )
 
-
+                    // Servicio Bluetooth único
                     val btServicio = remember {
                         val bm = getSystemService(Context.BLUETOOTH_SERVICE) as BluetoothManager
                         BluetoothServicio(bm.adapter)
                     }
 
-
+                    // Reenvía mensajes BT al VM (activo en todo el ciclo)
                     LaunchedEffect(btServicio) {
-                        btServicio.mensajes.collect { msg: Mensaje ->
-                            vm.onMensajeBt(msg)
-                        }
+                        btServicio.mensajes.collect { m: Mensaje -> vm.onMensajeBt(m) }
                     }
+
+                    // Gestor de partidas (JSON en almacenamiento interno)
+                    val gestorPartidas = remember { GestorPartidas(applicationContext) }
 
                     when (pantalla) {
                         Pantalla.MENU -> PantallaMenu(
@@ -62,18 +65,31 @@ class MainActivity : ComponentActivity() {
                                 pantalla = Pantalla.PARTIDA
                             },
                             onJugarBt = {
-                                // Primero vamos a la pantalla de conexión BT
                                 pantalla = Pantalla.BLUETOOTH
+                            },
+                            onPartidasGuardadas = {
+                                pantalla = Pantalla.GUARDADAS
                             }
                         )
 
                         Pantalla.BLUETOOTH -> PantallaBluetooth(
-                            // Le pasamos el servicio y vinculamos el VM
                             servicio = btServicio,
                             vincularVm = { vm.vincularBluetooth(btServicio) },
                             onConectado = {
-                                // Ya conectados → modo BT y a la partida
                                 modo = ModoJuego.BT
+                                pantalla = Pantalla.PARTIDA
+                            },
+                            onVolver = { pantalla = Pantalla.MENU }
+                        )
+
+                        Pantalla.GUARDADAS -> PantallaGuardadas(
+                            gestor = gestorPartidas,
+                            vm = vm,
+                            onCargarAlaPartida = { modoGuardado ->
+                                // Si el modo guardado difiere, cámbialo para recrear el VM
+                                if (modo != modoGuardado) {
+                                    modo = modoGuardado
+                                }
                                 pantalla = Pantalla.PARTIDA
                             },
                             onVolver = { pantalla = Pantalla.MENU }
@@ -81,9 +97,10 @@ class MainActivity : ComponentActivity() {
 
                         Pantalla.PARTIDA -> PantallaPartida(
                             modo = modo,
-                            vm = vm, // usamos el VM compartido
+                            vm = vm,
+                            gestor = gestorPartidas,
                             onVolverMenu = {
-                                // Si estabas en BT y regresas, cerramos sockets
+                                // Si sales desde BT, cierra sockets
                                 if (modo == ModoJuego.BT) btServicio.apagar()
                                 pantalla = Pantalla.MENU
                             }

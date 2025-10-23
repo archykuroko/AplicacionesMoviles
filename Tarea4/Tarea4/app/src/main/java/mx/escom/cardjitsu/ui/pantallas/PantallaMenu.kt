@@ -12,6 +12,7 @@ fun PantallaMenu(
     onJugarLocal: () -> Unit,
     onJugarVsBot: () -> Unit,
     onJugarBt: () -> Unit,
+    onPartidasGuardadas: () -> Unit
 ) {
     Scaffold(containerColor = MaterialTheme.colorScheme.surface.copy(alpha = 0f)) { inner ->
         Column(
@@ -38,6 +39,13 @@ fun PantallaMenu(
                 onClick = onJugarBt,
                 modifier = Modifier.fillMaxWidth()
             ) { Text("PvP por Bluetooth") }
+
+            Button(onClick = onPartidasGuardadas, modifier = Modifier.fillMaxWidth()) {
+                Text("Partidas guardadas")
+            }
+
+
+
         }
     }
 }
