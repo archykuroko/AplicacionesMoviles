@@ -72,6 +72,13 @@ private fun MainScreen(
         vm.setPermission(fine == PackageManager.PERMISSION_GRANTED || coarse == PackageManager.PERMISSION_GRANTED)
     }
 
+    fun hasNotifPermission(): Boolean {
+        return if (Build.VERSION.SDK_INT >= 33) {
+            ContextCompat.checkSelfPermission(ctx, Manifest.permission.POST_NOTIFICATIONS) == PackageManager.PERMISSION_GRANTED
+        } else true
+    }
+
+
     fun requestNeededPermissions() {
         val perms = mutableListOf(
             Manifest.permission.ACCESS_FINE_LOCATION,
@@ -146,14 +153,23 @@ private fun MainScreen(
 
                     Button(
                         onClick = {
+                            // 1) Si falta ubicación -> pide permisos
                             if (!ui.hasLocationPermission) {
                                 requestNeededPermissions()
-                            } else {
-                                vm.startBackgroundService()
+                                return@Button
                             }
+
+                            // 2) Si falta NOTIF (Android 13+) -> pide permisos
+                            if (!hasNotifPermission()) {
+                                requestNeededPermissions()
+                                return@Button
+                            }
+
+                            vm.startBackgroundService()
                         },
                         enabled = !ui.isTracking
                     ) { Text("Iniciar") }
+
 
                     OutlinedButton(
                         onClick = vm::stopBackgroundService,

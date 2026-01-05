@@ -46,9 +46,14 @@ class TrackingService : Service() {
         val intervalMs = intent?.getLongExtra(EXTRA_INTERVAL_MS, 10_000L) ?: 10_000L
         val notifEnabled = intent?.getBooleanExtra(EXTRA_NOTIF_ENABLED, true) ?: true
 
-        if (notifEnabled) {
-            startForeground(NOTIF_ID, buildNotification("Rastreo activo • ${intervalMs / 1000}s"))
-        }
+        // ✅ SIEMPRE: si arrancas como foreground service, DEBES llamar startForeground
+        startForeground(
+            NOTIF_ID,
+            buildNotification(
+                if (notifEnabled) "Rastreo activo • ${intervalMs / 1000}s"
+                else "Rastreo activo (silencioso)"
+            )
+        )
 
         startLocationUpdates(intervalMs)
         return START_STICKY
@@ -60,7 +65,6 @@ class TrackingService : Service() {
             .setWaitForAccurateLocation(false)
             .build()
 
-        // Asumimos permisos ya otorgados (los pide la UI antes de arrancar)
         fused.requestLocationUpdates(req, callback, mainLooper)
     }
 
@@ -76,9 +80,10 @@ class TrackingService : Service() {
         val channelId = "tracking_channel"
         val nm = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
 
+        // ✅ Crea canal SOLO si no existe
         if (nm.getNotificationChannel(channelId) == null) {
             nm.createNotificationChannel(
-                NotificationChannel(channelId, "Rastreo", NotificationManager.IMPORTANCE_LOW)
+                NotificationChannel(channelId, "Rastreo", NotificationManager.IMPORTANCE_DEFAULT)
             )
         }
 
@@ -87,6 +92,9 @@ class TrackingService : Service() {
             .setContentText(text)
             .setSmallIcon(android.R.drawable.ic_menu_mylocation)
             .setOngoing(true)
+            .setOnlyAlertOnce(true)
+            .setShowWhen(false)
+            .setSilent(true)
             .build()
     }
 
